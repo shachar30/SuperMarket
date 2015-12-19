@@ -9,7 +9,9 @@ var counter7 = 0;
 var counter8 = 0;
 var counter9 = 0;
 var counter10 = 0;
-var ArrayTags = new Array();
+
+//Array of Tag Object
+var TagObjectArr = new Array();
 
 //value for tracking number of objects
 var counterClickTags = 0
@@ -32,20 +34,29 @@ function SetUpCounter() {
      counter10 = 0;
 }
 
- //build object when you Click fot tag 
-var TagObject = function(pageX, pageY, counter) {
+//build object when you Click for tag,this object need to connect with database 
+
+function TagObject (pageX, pageY, counter) {
+    var self = this;
     this.id = counter;
     this.pageX = pageX;
     this.pageY = pageY;
-    this.GetObject = function (ArrayTags) { 
-        
-    };
-    this.GetDatabase = function () {
-        return "hello" + pageX + "  " + pageY;
-    };
-    
+    this.getFull = function () {
+        return self.pageX + "" + self.pageY;
+    }
+}
+
+
+
+TagObject.prototype = {
+    FullName: function (){
+        return this.pageX + " " + pageY;
+    }
 
 };
+
+
+
 $("#tags").on("click", function (event) {
     
     var thisEvent = event;
@@ -60,7 +71,7 @@ $("#tags").on("click", function (event) {
             counter = counter + 1;
             var pageX = event.pageX;
             var pageY = event.pageY; 
-            ArrayTags[counterClickTags]=TagObject(pageX, pageY, counterClickTags) 
+            TagObjectArr[counterClickTags]=new TagObject(pageX, pageY, counterClickTags);
             $(".tag1").css("position", "fixed");
             $(".tag1").css("left", event.pageX);
             $(".tag1").css("top", event.pageY);
@@ -82,7 +93,7 @@ $("#tags").on("click", function (event) {
             counter2 = counter2 + 1;
             var pageX = event.pageX;
             var pageY = event.pageY;
-            TagObject(pageX, pageY, counterClickTags) 
+            TagObjectArr[counterClickTags] = new TagObject(pageX, pageY, counterClickTags);
             $(".tag2").css("position", "fixed");
             $(".tag2").css("left", event.pageX);
             $(".tag2").css("top", event.pageY);
@@ -104,7 +115,7 @@ $("#tags").on("click", function (event) {
             counter3 = counter3 + 1;
             var pageX = event.pageX;
             var pageY = event.pageY;
-            TagObject(pageX, pageY, counterClickTags) 
+            TagObjectArr[counterClickTags] = new TagObject(pageX, pageY, counterClickTags);
             $(".tag3").css("position", "fixed");
             $(".tag3").css("left", event.pageX);
             $(".tag3").css("top", event.pageY);
@@ -126,7 +137,7 @@ $("#tags").on("click", function (event) {
             counter4 = counter4 + 1;
             var pageX = event.pageX;
             var pageY = event.pageY;
-            TagObject(pageX, pageY, counterClickTags) 
+            TagObjectArr[counterClickTags] = new TagObject(pageX, pageY, counterClickTags);
             $(".tag4").css("position", "fixed");
             $(".tag4").css("left", event.pageX);
             $(".tag4").css("top", event.pageY);
@@ -148,7 +159,7 @@ $("#tags").on("click", function (event) {
             counter5 = counter5 + 1;
             var pageX = event.pageX;
             var pageY = event.pageY;
-            TagObject(pageX, pageY, counterClickTags); 
+            TagObjectArr[counterClickTags] = new TagObject(pageX, pageY, counterClickTags); 
             $(".tag5").css("position", "fixed");
             $(".tag5").css("left", event.pageX);
             $(".tag5").css("top", event.pageY);
@@ -169,7 +180,7 @@ $("#tags").on("click", function (event) {
             counter6 = counter6 + 1;
             var pageX = event.pageX;
             var pageY = event.pageY;
-            TagObject(pageX, pageY, counterClickTags); 
+            TagObjectArr[counterClickTags] = new TagObject(pageX, pageY, counterClickTags);
             $(".tag6").css("position", "fixed");
             $(".tag6").css("left", event.pageX);
             $(".tag6").css("top", event.pageY);
@@ -191,7 +202,7 @@ $("#tags").on("click", function (event) {
             counter7 = counter7 + 1;
             var pageX = event.pageX;
             var pageY = event.pageY;
-            TagObject(pageX, pageY, counterClickTags); 
+            TagObjectArr[counterClickTags] = new TagObject(pageX, pageY, counterClickTags); 
             $(".tag7").css("position", "fixed");
             $(".tag7").css("left", event.pageX);
             $(".tag7").css("top", event.pageY);
@@ -213,7 +224,7 @@ $("#tags").on("click", function (event) {
             counter8 = counter8 + 1;
             var pageX = event.pageX;
             var pageY = event.pageY;
-            TagObject(pageX, pageY, counterClickTags);
+            TagObjectArr[counterClickTags] = new TagObject(pageX, pageY, counterClickTags);
             $(".tag8").css("position", "fixed");
             $(".tag8").css("left", event.pageX);
             $(".tag8").css("top", event.pageY);
@@ -235,7 +246,7 @@ $("#tags").on("click", function (event) {
             counter9 = counter9 + 1;
             var pageX = event.pageX;
             var pageY = event.pageY;
-            TagObject(pageX, pageY, counterClickTags);
+            TagObjectArr[counterClickTags] = new TagObject(pageX, pageY, counterClickTags);
             $(".tag9").css("position", "fixed");
             $(".tag9").css("left", event.pageX);
             $(".tag9").css("top", event.pageY);
@@ -258,7 +269,7 @@ $("#tags").on("click", function (event) {
             counter10 = counter10 + 1;
             var pageX = event.pageX;
             var pageY = event.pageY;
-            TagObject(pageX, pageY, counterClickTags);
+            TagObjectArr[counterClickTags] = new TagObject(pageX, pageY, counterClickTags);
             $(".tag10").css("position", "fixed");
             $(".tag10").css("left", event.pageX);
             $(".tag10").css("top", event.pageY);

@@ -49,8 +49,7 @@ $("#canvas").css("display", "none");
     $("CamreShoot").find(img).css("position", "relative");
     $('img').css("width", "320");
     $('img').css("height", "480");
-    //$("CamreShoot").find("img").css("width", "240");
-    //$("CamreShoot").find("img").css("height", "360");
+   
 
     $("#tags").append("<div class=tag1 style=display:none>Tag1</div>");
     $("#tags").append("<div class=tag2 style=display:none>Tag2</div>");
