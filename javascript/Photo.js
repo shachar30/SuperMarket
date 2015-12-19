@@ -50,8 +50,9 @@ $("#canvas").css("display", "none");
     $('img').css("width", "320");
     $('img').css("height", "480");
    
+//<input name="tags" id="myTags" value="Apple, Orange">
 
-    $("#tags").append("<div class=tag1 style=display:none>Tag1</div>");
+    $("#tags").append("<input id=myTags class=tag1 value=Apple, Orange style=display:none>");
     $("#tags").append("<div class=tag2 style=display:none>Tag2</div>");
     $("#tags").append("<div class=tag3 style=display:none>Tag3</div>");
     $("#tags").append("<div class=tag4 style=display:none>Tag4</div>");

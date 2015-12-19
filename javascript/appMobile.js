@@ -1,10 +1,10 @@
 ﻿    
-    $("#myTags").tagit({
+    /*$("#myTags").tagit({
         availableTags: ["c++", "java", "php", "javascript", "ruby", "python", "c"],
         autocomplete: { delay: 0, minLength: 2 }
     });
     $(".ui-loader").css("display", "none"); //t=Tag Result display none
-   
+   */
 
 //build clickTag object
 function TagObject(pageX, pageY, counter) {
@@ -57,11 +57,7 @@ $("#snapAgain").on("click", function (event) {
     alert("sanp agian push");
     
    
-    
-});
 
-document.getElementById("canvas").addEventListener("click", function () {
-    alert("click in canves");
-    document.getElementById("canvas").setAttribute("class", "democlass");
+
     
 });

@@ -1,4 +1,23 @@
-﻿//value for tracking in tag again
+﻿//clear Array
+Array.prototype.clear = function () {
+
+    this.splice(0, this.length);
+}
+
+//Take name of product from database and put it in Input - for tag the product
+function dataProduct() {
+    var nameProduct = new Array();
+    for (i = 0; i < items.data.length; i++) {
+        nameProduct[i] = items.data[i].name;
+        console.log(nameProduct[i]);
+        
+        
+        $("#myTags").val(nameProduct[i]);
+    }
+    nameProduct.clear();
+}
+
+//value for tracking the tag
 var counter1 = 0;
 var counter2 = 0
 var counter3 = 0;
@@ -44,6 +63,8 @@ function TagObject (pageX, pageY, counter) {
     this.getFull = function () {
         return self.pageX + "" + self.pageY;
     }
+    this.product=dataProduct();
+
 }
 
 
@@ -63,7 +84,7 @@ $("#tags").on("click", function (event) {
     console.log(thisEvent);
     console.log(thisEvent.pageX);
     console.log(thisEvent.pageY);
-    if (counter == 0) {
+    if (counter1 == 0) {
         
         
         
@@ -78,6 +99,7 @@ $("#tags").on("click", function (event) {
             alert("you add a knew tag here TAG-1");
             $(".tag1").css("color", "red");
             $(".tag1").css("display", "block");
+            $(".tag1").css("width", "64px");
             counterClickTags++;
 		
         }
